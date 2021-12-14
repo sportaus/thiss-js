@@ -11,6 +11,7 @@
     "dev": "webpack-dev-server --hot --json --open --config webpack.dev.js",
     "local": "webpack-dev-server --hot --json --open --config webpack.local.js",
     "beta": "webpack-dev-server --hot --json --open --config webpack.beta.js",
+    "prod-k8": "webpack-dev-server --hot --json --open --config webpack.prod-k8.js --host 0.0.0.0",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "prebuild": "rebuild-node-sass",

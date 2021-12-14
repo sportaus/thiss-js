@@ -1,0 +1,20 @@
+FROM node:12
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json webpack.prod-k8.js webpack.common.js ./
+RUN npm install
+RUN npm install -g webpack webpack-cli
+
+# Bundle app source
+COPY . .
+
+# A .env file should be mounted into the pod, most likely as a config map and provide the following:
+# BASE_URL, MDQ_URL, SEARCH_URL, STORAGE_DOMAIN, DEFAULT_CONTEXT, WHITELIST
+
+EXPOSE 8080
+CMD ["npm", "run", "prod-k8"]
