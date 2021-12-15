@@ -1,0 +1,23 @@
+FROM nginx:1.21
+COPY dist /dist
+ADD docker/start-k8.sh /
+RUN chmod a+rx /start-k8.sh
+
+## Clean out defualt nginx files from html folder
+RUN rm -f /usr/share/nginx/html/*
+
+## Example env vars that will need setting
+# ENV BASE_URL "http://localhost"
+# ENV COMPONENT_URL "http://localhost/cta"
+# ENV PERSISTENCE_URL "http://localhost/ps"
+# ENV MDQ_URL "http://localhost:8000/entities"
+# ENV SEARCH_URL "http://localhost:8000/api/search"
+# ENV MDQ_HOSTPORT "localhost:8000"
+# ENV STORAGE_DOMAIN "localhost"
+# ENV LOGLEVEL "warn"
+# ENV DEFAULT_CONTEXT "local"
+
+## Use the custom start script, which will replace envvars and copy dist into nginx html folder
+ENTRYPOINT ["/start-k8.sh"]
+
+CMD ["nginx", "-g", "daemon off;"]
