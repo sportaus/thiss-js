@@ -1,4 +1,4 @@
-FROM nginx:1.21
+FROM nginxinc/nginx-unprivileged:1.20
 COPY dist /dist
 ADD docker/start-k8.sh /
 RUN chmod a+rx /start-k8.sh
