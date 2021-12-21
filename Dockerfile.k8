@@ -3,8 +3,12 @@ COPY dist /dist
 ADD docker/start-k8.sh /
 RUN chmod a+rx /start-k8.sh
 
-## Clean out defualt nginx files from html folder
-RUN rm -f /usr/share/nginx/html/*
+## Clean out defualt nginx files from html folder and ensure startup can write the parsed files to the html folder
+USER root
+RUN chmod a+rx /start-k8.sh
+RUN chown nginx:nginx /usr/share/nginx/html
+## NGINX user
+USER 101
 
 ## Example env vars that will need setting
 # ENV BASE_URL "http://localhost"
