@@ -4,8 +4,9 @@ ADD docker/start-k8.sh /
 
 ## Clean out defualt nginx files from html folder and ensure startup can write the parsed files to the html folder
 USER root
+RUN rm -f /usr/share/nginx/html/*
 RUN chmod a+rx /start-k8.sh
-RUN chown nginx:nginx /usr/share/nginx/html
+RUN chmod a+wr /usr/share/nginx/html
 ## NGINX user
 USER 101
 
