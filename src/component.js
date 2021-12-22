@@ -142,7 +142,7 @@ export const DiscoveryComponent = zoid.create({
 
     // default dimensions for the component
     dimensions: {
-    	width: '350px',
+    	width: '100%',
     	height: '85px'
     },
 
@@ -151,7 +151,7 @@ export const DiscoveryComponent = zoid.create({
 
     // defines if the container should be resized
     autoResize: {
-        width: false,
+        width: true,
         height: false
     },
 
