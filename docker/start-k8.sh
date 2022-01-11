@@ -70,6 +70,7 @@ server {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
         add_header 'Access-Control-Allow-Origin' '*' always;
+        try_files \$uri \$uri/index.html \$uri.html;
     }
 }
 EOF
