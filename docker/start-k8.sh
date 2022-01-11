@@ -59,6 +59,21 @@ http {
 
 EOF
 
+echo "Config CORS header"
+
+cat>/etc/nginx/conf.d/default.conf<<EOF
+server {
+    listen       8080;
+    server_name  localhost;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        add_header 'Access-Control-Allow-Origin' '*' always;
+    }
+}
+EOF
+
 echo "Launching standard nginx entrypoint"
 
 source /docker-entrypoint.sh
