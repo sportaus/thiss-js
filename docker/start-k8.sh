@@ -70,7 +70,8 @@ server {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
         add_header 'Access-Control-Allow-Origin' '*' always;
-        add_header X-Frame-Options ALLOW-FROM ${AUTH_SERVER_URL};
+        add_header 'X-Frame-Options' "ALLOW-FROM ${AUTH_SERVER_URL}";
+        add_header 'Content-Security-Policy' "frame-ancestors ${AUTH_SERVER_URL}";
         try_files \$uri \$uri/index.html \$uri.html;
     }
 }
