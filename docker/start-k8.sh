@@ -71,6 +71,7 @@ server {
         index  index.html index.htm;
         add_header 'Access-Control-Allow-Origin' '*' always;
         try_files \$uri \$uri/index.html \$uri.html;
+        add_header X-Frame-Options ALLOW-FROM ${AUTH_SERVER_URL};
     }
 }
 EOF
