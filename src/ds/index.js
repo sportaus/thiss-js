@@ -183,5 +183,5 @@ $(document).ready(function() {
                 $("#search").addClass("d-none");
             }
         }
-    }).discovery_client("sp").then(entity => $(".sp_title").text(entity.title))
+    }).discovery_client("sp")//.then(entity => $(".sp_title").text(entity.title))
 });
