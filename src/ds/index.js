@@ -30,7 +30,7 @@ import {DiscoveryService, parse_qs, json_mdq_search} from "@theidentityselector/
 import {json_mdq_get} from "@theidentityselector/thiss-ds/src/discovery";
 require("./bootstrap-list-filter.src.js");
 require("./ds-widget.js");
-const learn_more_url = process.env.LEARN_MORE_URL || "https://seamlessaccess.org/about/trust/";
+const learn_more_url = process.env.LEARN_MORE_URL || "https://www.sportaus.gov.au/legal_information/privacy_policy";
 const service_url = process.env.SERVICE_URL || "https://seamlessaccess.org/";
 const service_name = process.env.SERVICE_NAME || "SeamlessAccess";
 const item_ttl = parseInt(process.env.ITEM_TTL || "3600") * 1000;
